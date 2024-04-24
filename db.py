@@ -1,9 +1,14 @@
 import pymongo
 from flask import request
 
-client = pymongo.MongoClient('mongodb://127.0.0.1:27017/')
+
+# Setup MongoDB connection
+conn = "mongodb+srv://laaria:laaria9251@cluster0.g9lsxqg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+client = pymongo.MongoClient(conn, serverSelectionTimeoutMS=5000)
+
 userdb = client['userdb']
 users = userdb.customers
+
 
 
 def insert_data():
